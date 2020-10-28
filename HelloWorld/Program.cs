@@ -7,18 +7,29 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            var studentNames = new List<string>();
-            var studentGrades = new List<int>();
+            var students = new List<Student>();
 
             var adding = true;
 
             while (adding)
             {
+                var newStudent = new Student();
                 Console.Write("Student Name: ");
-                studentNames.Add(Console.ReadLine());
+                newStudent.name = Console.ReadLine();
 
                 Console.Write("Student Grade: ");
-                studentGrades.Add(int.Parse(Console.ReadLine()));
+                newStudent.grade = (int.Parse(Console.ReadLine()));
+
+                Console.Write("Student Birthday: ");
+                newStudent.birthday = Console.ReadLine();
+
+                Console.Write("Student Address: ");
+                newStudent.address = Console.ReadLine();
+
+                Console.Write("Student Phone Number: ");
+                newStudent.phone = (int.Parse(Console.ReadLine()));
+
+                students.Add(newStudent);
 
                 Console.WriteLine("Add another? y/n");
 
@@ -26,11 +37,19 @@ namespace HelloWorld
                     adding = false;
             }
 
-
-            for (int i = 0; i < studentNames.Count; i++)
+            foreach (var student in students)
             {
-                Console.WriteLine("Name: {0}, Grade: {1}", studentNames[i], studentGrades[i]);
+                Console.WriteLine("Name: {0}, Grade: {1}", student.name, student.grade);
             }
         }
+    }
+
+    class Student
+    {
+        public string name;
+        public int grade;
+        public string birthday;
+        public string address;
+        public int phone;
     }
 }
