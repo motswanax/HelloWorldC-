@@ -30,6 +30,8 @@ namespace HelloWorld
                 newStudent.Phone = (int.Parse(Console.ReadLine()));
 
                 students.Add(newStudent);
+                Student.count++;
+                Console.WriteLine("Student Count: {0}", Student.count);
 
                 Console.WriteLine("Add another? y/n");
 
@@ -46,6 +48,8 @@ namespace HelloWorld
 
     class Student
     {
+        static public int count = 0;
+
         /* These are known as fields in C# */
         public string name;
         public int grade;
