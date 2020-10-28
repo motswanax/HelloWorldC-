@@ -39,6 +39,13 @@ namespace HelloWorld
                 Console.WriteLine("Name: {0}, Grade: {1}", student.name, student.grade);
             }
         }
+
+        static void import()
+        {
+            var importedStudent = new Student("Bad", 75, "December", "address", 123456);
+            Console.WriteLine(importedStudent.name);
+        }
+        
     }
 
     class Student
@@ -51,6 +58,20 @@ namespace HelloWorld
         public string birthday;
         public string address;
         private int phone;
+
+        public Student()
+        {
+
+        }
+
+        public Student(string name, int grade, string birthday, string address, int phone)
+        {
+            this.name = name;
+            this.grade = grade;
+            this.birthday = birthday;
+            this.address = address;
+            this.phone = phone;
+        }
 
         /* This is a property. The setter inside acts like a function and you can add logic to it */
         public int Phone
