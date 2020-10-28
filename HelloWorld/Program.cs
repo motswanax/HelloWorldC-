@@ -6,25 +6,24 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("What is your name?");
-            var name = Console.ReadLine();
-            Console.WriteLine("How old are you?");
-            var age = Console.ReadLine();
-            Console.WriteLine("What month were you born in?");
-            var birthMonth = Console.ReadLine();
-         
-            Console.WriteLine($"Hi {name}. You are {age} years old and born in {birthMonth}");
+            Console.WriteLine("How many students in your class?");
+            var studentCount = int.Parse(Console.ReadLine());
 
-            if(birthMonth == "march")
+            var studentNames = new string[studentCount];
+            var studentGrades = new int[studentCount];
+
+            for (int i = 0; i < studentCount; i++)
             {
-                Console.WriteLine("You are an Aries");
-            } else if(birthMonth == "april")
-            {
-                Console.WriteLine("You are a Taurus");
+                Console.Write("Student Name: ");
+                studentNames[i] = Console.ReadLine();
+
+                Console.Write("Student Grade: ");
+                studentGrades[i] = int.Parse(Console.ReadLine());
             }
-            else if (birthMonth == "may")
+
+            for (int i = 0; i < studentCount; i++)
             {
-                Console.WriteLine("You are a Gemini");
+                Console.WriteLine("Name: {0}, Grade: {1}", studentNames[i], studentGrades[i]);
             }
         }
     }
