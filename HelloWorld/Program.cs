@@ -27,7 +27,7 @@ namespace HelloWorld
                 newStudent.address = Console.ReadLine();
 
                 Console.Write("Student Phone Number: ");
-                newStudent.setPhone(int.Parse(Console.ReadLine()));
+                newStudent.Phone = (int.Parse(Console.ReadLine()));
 
                 students.Add(newStudent);
 
@@ -46,11 +46,18 @@ namespace HelloWorld
 
     class Student
     {
+        /* These are known as fields in C# */
         public string name;
         public int grade;
         public string birthday;
         public string address;
         private int phone;
+
+        /* This is a property. The setter inside acts like a function and you can add logic to it */
+        public int Phone
+        {
+            set { phone = value; }
+        }
 
         public void setPhone(int number)
         {
