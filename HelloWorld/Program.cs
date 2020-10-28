@@ -27,7 +27,7 @@ namespace HelloWorld
                 newStudent.address = Console.ReadLine();
 
                 Console.Write("Student Phone Number: ");
-                newStudent.phone = (int.Parse(Console.ReadLine()));
+                newStudent.setPhone(int.Parse(Console.ReadLine()));
 
                 students.Add(newStudent);
 
@@ -50,6 +50,11 @@ namespace HelloWorld
         public int grade;
         public string birthday;
         public string address;
-        public int phone;
+        private int phone;
+
+        public void setPhone(int number)
+        {
+            phone = number;
+        }
     }
 }
