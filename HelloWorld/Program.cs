@@ -14,20 +14,15 @@ namespace HelloWorld
             while (adding)
             {
                 var newStudent = new Student();
-                Console.Write("Student Name: ");
-                newStudent.name = Console.ReadLine();
+                newStudent.name = Util.Console.Ask("Student Name: ");
 
-                Console.Write("Student Grade: ");
-                newStudent.grade = (int.Parse(Console.ReadLine()));
+                newStudent.grade = (int.Parse(Util.Console.Ask("Student Grade: ")));
 
-                Console.Write("Student Birthday: ");
-                newStudent.birthday = Console.ReadLine();
+                newStudent.birthday = Util.Console.Ask("Student Birthday: ");
 
-                Console.Write("Student Address: ");
-                newStudent.address = Console.ReadLine();
+                newStudent.address = Util.Console.Ask("Student Addresss: ");
 
-                Console.Write("Student Phone Number: ");
-                newStudent.Phone = (int.Parse(Console.ReadLine()));
+                newStudent.Phone = (int.Parse(Util.Console.Ask("Student Phone: ")));
 
                 students.Add(newStudent);
                 Student.count++;
