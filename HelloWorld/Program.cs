@@ -7,89 +7,43 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            var students = new List<Student>();
+            Console.WriteLine("What is your name?");
+            var name = TryAnswer();
 
-            var adding = true;
+            Console.WriteLine("What is your age?");
+            var age = TryAnswer();
 
-            while (adding)
+            Console.WriteLine("What month were you born in?");
+            var month = TryAnswer();
+
+            Console.WriteLine("Your name is: {0}", name);
+            Console.WriteLine("Your age is: {0}", age);
+            Console.WriteLine("Your birth month is: {0}", month);
+
+            if (month == "march")
             {
-                var newStudent = new Student();
-                newStudent.name = Util.Console.Ask("Student Name: ");
-
-                newStudent.grade = (int.Parse(Util.Console.Ask("Student Grade: ")));
-
-                newStudent.birthday = Util.Console.Ask("Student Birthday: ");
-
-                newStudent.address = Util.Console.Ask("Student Addresss: ");
-
-                newStudent.Phone = (int.Parse(Util.Console.Ask("Student Phone: ")));
-
-                students.Add(newStudent);
-                Student.count++;
-                Console.WriteLine("Student Count: {0}", Student.count);
-
-                Console.WriteLine("Add another? y/n");
-
-                if (Console.ReadLine() != "y")
-                    adding = false;
+                Console.WriteLine("you are an Aries.");
             }
-
-            foreach (var student in students)
+            else if (month == "april")
             {
-                Console.WriteLine("Name: {0}, Grade: {1}", student.name, student.grade);
+                Console.WriteLine("you are a Taurus.");
+            }
+            else if (month == "may")
+            {
+                Console.WriteLine("you are a Gemini.");
             }
         }
 
-        static void import()
+        static string TryAnswer()
         {
-            var importedStudent = new Student("Bad", 75, "December", "address", 123456);
-            Console.WriteLine(importedStudent.name);
-        }
-        
-    }
-
-    class Member
-    {
-        public string name;
-        public string address;
-        protected int phone;
-
-        public int Phone
-        {
-            set { phone = value; }
-        }
-    }
-
-    class Student : Member
-    {
-        static public int count = 0;
-
-        /* These are known as fields in C# */
-        public int grade;
-        public string birthday;
-
-        public Student()
-        {
-
+            var question = Console.ReadLine();
+            if (question == "")
+            {
+                Console.WriteLine("You didn't type anything, please try again:");
+                return Console.ReadLine();
+            }
+            return question;
         }
 
-        public Student(string name, int grade, string birthday, string address, int phone)
-        {
-            this.name = name;
-            this.grade = grade;
-            this.birthday = birthday;
-            this.address = address;
-            this.phone = phone;
-        }
-
-        public void setPhone(int number)
-        {
-            phone = number;
-        }
-    }
-
-    class Teacher : Member
-    {
-        public string subject;
     }
 }
