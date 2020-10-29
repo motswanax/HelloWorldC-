@@ -13,27 +13,33 @@ namespace HelloWorld
 
             while (adding)
             {
-                var newStudent = new Student();
-                newStudent.name = Util.Console.Ask("Student Name: ");
+                try
+                {
+                    var newStudent = new Student();
+                    newStudent.name = Util.Console.Ask("Student Name: ");
 
-                var result = int.TryParse(Util.Console.Ask("Student Grade: "), out newStudent.grade);
-                if (!result)
-                    Console.WriteLine("Error! Please enter a number");
+                    var result = int.Parse(Util.Console.Ask("Student Grade: "));
 
-                newStudent.birthday = Util.Console.Ask("Student Birthday: ");
+                    newStudent.birthday = Util.Console.Ask("Student Birthday: ");
 
-                newStudent.address = Util.Console.Ask("Student Addresss: ");
+                    newStudent.address = Util.Console.Ask("Student Addresss: ");
 
-                newStudent.Phone = (int.Parse(Util.Console.Ask("Student Phone: ")));
+                    newStudent.Phone = (int.Parse(Util.Console.Ask("Student Phone: ")));
 
-                students.Add(newStudent);
-                Student.count++;
-                Console.WriteLine("Student Count: {0}", Student.count);
+                    students.Add(newStudent);
+                    Student.count++;
+                    Console.WriteLine("Student Count: {0}", Student.count);
 
-                Console.WriteLine("Add another? y/n");
+                    Console.WriteLine("Add another? y/n");
 
-                if (Console.ReadLine() != "y")
-                    adding = false;
+                    if (Console.ReadLine() != "y")
+                        adding = false;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Error adding student. Please try again.");
+                }
+                
             }
 
             foreach (var student in students)
