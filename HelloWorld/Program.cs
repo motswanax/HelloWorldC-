@@ -3,12 +3,19 @@ using System.Collections.Generic;
 
 namespace HelloWorld
 {
+    enum School
+    {
+        MaterSpei,
+        StJosephs,
+        Swaneng
+    }
+
     class Program
     {
+        static List<Student> students = new List<Student>();
+
         static void Main(string[] args)
         {
-            var students = new List<Student>();
-
             var adding = true;
 
             while (adding)
@@ -19,6 +26,8 @@ namespace HelloWorld
                     newStudent.name = Util.Console.Ask("Student Name: ");
 
                     newStudent.grade = Util.Console.askInt("Student Grade: ");
+
+                    newStudent.school = (School) Util.Console.askInt("School Name (type the corresponding number): \n0: Mater Spei \n1: St. Joseph's \n2: Swaneng\n");
 
                     newStudent.birthday = Util.Console.Ask("Student Birthday: ");
 
@@ -51,6 +60,7 @@ namespace HelloWorld
             {
                 Console.WriteLine("Name: {0}, Grade: {1}", student.name, student.grade);
             }
+            Export();
         }
 
         static void import()
@@ -59,6 +69,24 @@ namespace HelloWorld
             Console.WriteLine(importedStudent.name);
         }
         
+        static void Export()
+        {
+            foreach (var student in students)
+            {
+                switch(student.school)
+                {
+                    case School.MaterSpei:
+                        Console.WriteLine("Exporting to Mater Spei");
+                        break;
+                    case School.StJosephs:
+                        Console.WriteLine("Exporting to St. Joseph's");
+                        break;
+                    case School.Swaneng:
+                        Console.WriteLine("Exporting to Swaneng");
+                        break;
+                }
+            }
+        }
     }
 
     class Member
@@ -80,6 +108,7 @@ namespace HelloWorld
         /* These are known as fields in C# */
         public int grade;
         public string birthday;
+        public School school;
 
         public Student()
         {
