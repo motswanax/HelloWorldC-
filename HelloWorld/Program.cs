@@ -18,13 +18,13 @@ namespace HelloWorld
                     var newStudent = new Student();
                     newStudent.name = Util.Console.Ask("Student Name: ");
 
-                    var result = int.Parse(Util.Console.Ask("Student Grade: "));
+                    var result = Util.Console.askInt("Student Grade: ");
 
                     newStudent.birthday = Util.Console.Ask("Student Birthday: ");
 
                     newStudent.address = Util.Console.Ask("Student Addresss: ");
 
-                    newStudent.Phone = (int.Parse(Util.Console.Ask("Student Phone: ")));
+                    newStudent.Phone = Util.Console.askInt("Student Phone: ");
 
                     students.Add(newStudent);
                     Student.count++;
@@ -35,10 +35,10 @@ namespace HelloWorld
                     if (Console.ReadLine() != "y")
                         adding = false;
                 }
-                catch (FormatException)
+                catch (FormatException msg)
                 {
                     /* Specific catch is always before the general catch */
-                    Console.WriteLine("Input was not a number");
+                    Console.WriteLine(msg.Message);
                 }
                 catch (Exception)
                 {
