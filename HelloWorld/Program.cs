@@ -18,7 +18,7 @@ namespace HelloWorld
                     var newStudent = new Student();
                     newStudent.name = Util.Console.Ask("Student Name: ");
 
-                    var result = Util.Console.askInt("Student Grade: ");
+                    newStudent.grade = Util.Console.askInt("Student Grade: ");
 
                     newStudent.birthday = Util.Console.Ask("Student Birthday: ");
 
