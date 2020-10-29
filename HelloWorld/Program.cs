@@ -35,6 +35,11 @@ namespace HelloWorld
                     if (Console.ReadLine() != "y")
                         adding = false;
                 }
+                catch (FormatException)
+                {
+                    /* Specific catch is always before the general catch */
+                    Console.WriteLine("Input was not a number");
+                }
                 catch (Exception)
                 {
                     Console.WriteLine("Error adding student. Please try again.");
