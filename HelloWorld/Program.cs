@@ -16,7 +16,9 @@ namespace HelloWorld
                 var newStudent = new Student();
                 newStudent.name = Util.Console.Ask("Student Name: ");
 
-                newStudent.grade = (int.Parse(Util.Console.Ask("Student Grade: ")));
+                var result = int.TryParse(Util.Console.Ask("Student Grade: "), out newStudent.grade);
+                if (!result)
+                    Console.WriteLine("Error! Please enter a number");
 
                 newStudent.birthday = Util.Console.Ask("Student Birthday: ");
 
