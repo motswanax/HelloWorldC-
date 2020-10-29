@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 
 namespace HelloWorld
 {
-    class Program
+    class Data
     {
-        static void Main(string[] args)
+        public string name;
+        public int age;
+        public string month;
+
+        public void display()
         {
-            Console.WriteLine("What is your name?");
-            var name = TryAnswer();
-
-            Console.WriteLine("What is your age?");
-            var age = TryAnswer();
-
-            Console.WriteLine("What month were you born in?");
-            var month = TryAnswer();
-
             Console.WriteLine("Your name is: {0}", name);
             Console.WriteLine("Your age is: {0}", age);
             Console.WriteLine("Your birth month is: {0}", month);
@@ -32,6 +28,24 @@ namespace HelloWorld
             {
                 Console.WriteLine("you are a Gemini.");
             }
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var data = new Data();
+            Console.WriteLine("What is your name?");
+            data.name = TryAnswer();
+
+            Console.WriteLine("What is your age?");
+            data.age = int.Parse(TryAnswer());
+
+            Console.WriteLine("What month were you born in?");
+            data.month = TryAnswer();
+
+            data.display();
         }
 
         static string TryAnswer()
