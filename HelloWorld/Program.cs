@@ -48,16 +48,25 @@ namespace HelloWorld
         
     }
 
-    class Student
+    class Member
+    {
+        public string name;
+        public string address;
+        protected int phone;
+
+        public int Phone
+        {
+            set { phone = value; }
+        }
+    }
+
+    class Student : Member
     {
         static public int count = 0;
 
         /* These are known as fields in C# */
-        public string name;
         public int grade;
         public string birthday;
-        public string address;
-        private int phone;
 
         public Student()
         {
@@ -73,15 +82,14 @@ namespace HelloWorld
             this.phone = phone;
         }
 
-        /* This is a property. The setter inside acts like a function and you can add logic to it */
-        public int Phone
-        {
-            set { phone = value; }
-        }
-
         public void setPhone(int number)
         {
             phone = number;
         }
+    }
+
+    class Teacher : Member
+    {
+        public string subject;
     }
 }
