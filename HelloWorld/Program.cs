@@ -16,6 +16,9 @@ namespace HelloWorld
 
         static void Main(string[] args)
         {
+            PayRoll payroll = new PayRoll();
+            payroll.PayAll();
+
             var adding = true;
 
             while (adding)
@@ -128,10 +131,5 @@ namespace HelloWorld
         {
             phone = number;
         }
-    }
-
-    class Teacher : Member
-    {
-        public string subject;
     }
 }

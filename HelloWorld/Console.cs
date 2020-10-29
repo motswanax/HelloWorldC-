@@ -30,7 +30,6 @@ namespace Util
 
                 throw new FormatException("Input was not a number");
             }
-            
         }
     }
 }
