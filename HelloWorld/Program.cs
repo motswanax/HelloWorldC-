@@ -56,8 +56,9 @@ namespace HelloWorld
                 {
                     Console.WriteLine("Error adding student. Please try again.");
                 }
-                
             }
+
+            ShowGrade("Tom");
 
             foreach (var student in students)
             {
@@ -89,6 +90,13 @@ namespace HelloWorld
                         break;
                 }
             }
+        }
+
+        /* Lambda expressions */
+        static void ShowGrade(string name)
+        {
+            var found = students.Find(student => student.Name == name);
+            Console.WriteLine("{0}'s Grade: {1}", found.Name, found.Grade);
         }
     }
 
