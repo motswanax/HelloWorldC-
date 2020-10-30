@@ -6,7 +6,7 @@ namespace HelloWorld
 {
     class Teacher : Member, IPayee
     {
-        public string subject;
+        public string Subject { get; set; }
 
         public void Pay()
         {

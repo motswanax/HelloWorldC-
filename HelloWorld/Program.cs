@@ -26,21 +26,21 @@ namespace HelloWorld
                 try
                 {
                     var newStudent = new Student();
-                    newStudent.name = Util.Console.Ask("Student Name: ");
+                    newStudent.Name = Util.Console.Ask("Student Name: ");
 
-                    newStudent.grade = Util.Console.askInt("Student Grade: ");
+                    newStudent.Grade = Util.Console.askInt("Student Grade: ");
 
-                    newStudent.school = (School) Util.Console.askInt("School Name (type the corresponding number): \n0: Mater Spei \n1: St. Joseph's \n2: Swaneng\n");
+                    newStudent.School = (School) Util.Console.askInt("School Name (type the corresponding number): \n0: Mater Spei \n1: St. Joseph's \n2: Swaneng\n");
 
-                    newStudent.birthday = Util.Console.Ask("Student Birthday: ");
+                    newStudent.Birthday = Util.Console.Ask("Student Birthday: ");
 
-                    newStudent.address = Util.Console.Ask("Student Addresss: ");
+                    newStudent.Address = Util.Console.Ask("Student Addresss: ");
 
                     newStudent.Phone = Util.Console.askInt("Student Phone: ");
 
                     students.Add(newStudent);
-                    Student.count++;
-                    Console.WriteLine("Student Count: {0}", Student.count);
+                    Student.Count++;
+                    Console.WriteLine("Student Count: {0}", Student.Count);
 
                     Console.WriteLine("Add another? y/n");
 
@@ -61,7 +61,7 @@ namespace HelloWorld
 
             foreach (var student in students)
             {
-                Console.WriteLine("Name: {0}, Grade: {1}", student.name, student.grade);
+                Console.WriteLine("Name: {0}, Grade: {1}", student.Name, student.Grade);
             }
             Export();
         }
@@ -69,14 +69,14 @@ namespace HelloWorld
         static void import()
         {
             var importedStudent = new Student("Bad", 75, "December", "address", 123456);
-            Console.WriteLine(importedStudent.name);
+            Console.WriteLine(importedStudent.Name);
         }
         
         static void Export()
         {
             foreach (var student in students)
             {
-                switch(student.school)
+                switch(student.School)
                 {
                     case School.MaterSpei:
                         Console.WriteLine("Exporting to Mater Spei");
@@ -94,24 +94,19 @@ namespace HelloWorld
 
     class Member
     {
-        public string name;
-        public string address;
-        protected int phone;
-
-        public int Phone
-        {
-            set { phone = value; }
-        }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public int Phone { get; set; }
     }
 
     class Student : Member
     {
-        static public int count = 0;
+        static public int Count { get; set; } = 0;
 
         /* These are known as fields in C# */
-        public int grade;
-        public string birthday;
-        public School school;
+        public int Grade { get; set; }
+        public string Birthday { get; set; }
+        public School School { get; set; }
 
         public Student()
         {
@@ -120,16 +115,16 @@ namespace HelloWorld
 
         public Student(string name, int grade, string birthday, string address, int phone)
         {
-            this.name = name;
-            this.grade = grade;
-            this.birthday = birthday;
-            this.address = address;
-            this.phone = phone;
+            Name = name;
+            Grade = grade;
+            Birthday = birthday;
+            Address = address;
+            Phone = phone;
         }
 
         public void setPhone(int number)
         {
-            phone = number;
+            Phone = number;
         }
     }
 }
