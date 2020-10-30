@@ -17,6 +17,8 @@ namespace HelloWorld
             payees.Add(new Teacher());
             payees.Add(new Teacher());
             payees.Add(new Principal());
+
+            Logger.Log("Payroll started", "Payroll", 1);
         }
 
         public void PayAll()
@@ -25,6 +27,8 @@ namespace HelloWorld
             {
                 payee.Pay();
             }
+
+            Logger.Log("PayAll completed", "Payroll", 2);
         }
     }
 }

@@ -16,6 +16,7 @@ namespace HelloWorld
 
         static void Main(string[] args)
         {
+            Logger.Log("Tracker started", priority: 0);
             PayRoll payroll = new PayRoll();
             payroll.PayAll();
 
@@ -23,6 +24,7 @@ namespace HelloWorld
 
             while (adding)
             {
+                Logger.Log("Adding new student");
                 try
                 {
                     var newStudent = new Student();
